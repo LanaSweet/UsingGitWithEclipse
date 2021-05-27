@@ -39,10 +39,10 @@ public class CalculadoraServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.modelo = new CalculadoraModelo(Float.valueOf(request.getParameter("altura")), Float.valueOf(request.getParameter("peso")));
-		this.modelo.imc = this.modelo.peso/(this.modelo.altura*this.modelo.altura);
-		if(this.modelo.imc<18.5) {
+		Float p =this.modelo.calcular();
+		if(p <18.5) {
 			modelo.mensaje="delgado";
-		} else if (this.modelo.imc>18.5 && this.modelo.imc<25) { 
+		} else if ( p>18.5 && p <25) { 
 			modelo.mensaje="normal";
 		} else {modelo.mensaje="obeso";}
 		request.setAttribute("modelo", modelo);

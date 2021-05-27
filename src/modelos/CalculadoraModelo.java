@@ -23,6 +23,12 @@ public class CalculadoraModelo {
 		
 	}
 	
+	public Float calcular() {
+		if (this.altura>0) {
+			return this.peso/(this.altura*this.altura);			
+		}
+		else return 0f;
+	}
 	
 
 }
